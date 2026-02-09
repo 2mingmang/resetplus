@@ -7,6 +7,7 @@ export default defineConfig(({ mode }) => {
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);
     return {
+      base: process.env.NODE_ENV === 'production' ? '/resetplus/' : '/',
       server: {
         port: 3000,
         host: '0.0.0.0',
@@ -16,6 +17,10 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
+      },
+      build: {
+        outDir: 'dist',
+        assetsDir: 'assets',
       }
     };
 });

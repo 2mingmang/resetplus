@@ -61,16 +61,18 @@ export const landingStyles = {
     title: 'text-3xl font-extrabold tracking-tight text-slate-900',
     subtitle: 'mt-3 text-sm text-slate-600',
     cardsGrid: 'mt-12 grid grid-cols-1 md:grid-cols-3 gap-6',
-    cardsGridBottom: 'md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6',
-    cardsSpacer: 'md:col-span-1',
     disclaimerWrap: 'mt-10 flex justify-center',
     disclaimer:
       'max-w-3xl w-full rounded-xl bg-blue-50 border border-blue-100 px-6 py-4 text-center text-sm text-blue-900',
     card: {
       root: 'rounded-2xl bg-white border border-slate-100 shadow-sm p-6',
+      featured: 'inline-flex items-center gap-1.5 text-xs font-semibold text-blue-700 mb-3',
+      featuredIcon: 'w-3.5 h-3.5',
       title: 'text-base font-extrabold text-slate-900',
       meta: 'mt-5 space-y-3 text-sm',
       metaRow: 'flex items-center justify-between text-slate-500',
+      costWrapper: 'flex items-center gap-2',
+      oldCost: 'text-xs text-rose-500 line-through',
       cost: 'font-bold text-blue-700',
       duration: 'font-semibold text-slate-900',
       extra: 'text-xs text-rose-500 text-right',
@@ -103,8 +105,6 @@ export const landingStyles = {
     wrap: 'fixed right-4 bottom-4 z-50 flex flex-col gap-3',
     call:
       'inline-flex items-center gap-2 rounded-full bg-white px-4 py-3 shadow-lg border border-slate-200 text-sm font-semibold text-slate-800 hover:bg-slate-50',
-    kakao:
-      'inline-flex items-center gap-2 rounded-full bg-yellow-300 px-4 py-3 shadow-lg border border-yellow-200 text-sm font-semibold text-slate-900 hover:bg-yellow-200',
   },
 } as const;
 

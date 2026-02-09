@@ -5,12 +5,14 @@ import { Button } from '../ui/Button';
 import { Container } from '../ui/Container';
 import { landingStyles as s } from './landingStyles';
 
+import logoHorizontal from '../../logo/가로.png';
+
 export function Header() {
   return (
     <header className={s.header.root}>
       <Container className={s.header.container}>
         <a href={landingContent.anchors.top} className={s.header.brand}>
-          {t('site.name')}
+          <img src={logoHorizontal} alt={t('site.name')} className="h-12 object-contain" />
         </a>
 
         <nav className={s.header.nav}>

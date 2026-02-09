@@ -1,7 +1,0 @@
-{
-  "name": "Personal Rehab Statement Assistant AI",
-  "description": "A specialized tool for converting and structuring bank/card statement PDFs into standardized Excel-ready data for personal rehabilitation proceedings.",
-  "requestFramePermissions": [
-    "camera"
-  ]
-}

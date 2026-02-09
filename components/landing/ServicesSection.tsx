@@ -19,12 +19,9 @@ export function ServicesSection() {
           {cards.slice(0, 3).map((card) => (
             <ServiceCard key={card.key} card={card} />
           ))}
-          <div className={s.services.cardsGridBottom}>
-            <div className={s.services.cardsSpacer} />
-            {cards.slice(3).map((card) => (
-              <ServiceCard key={card.key} card={card} />
-            ))}
-          </div>
+          {cards.slice(3).map((card) => (
+            <ServiceCard key={card.key} card={card} />
+          ))}
         </div>
 
         <div className={s.services.disclaimerWrap}>
@@ -42,12 +39,25 @@ const ServiceCard: React.FC<{
 }> = ({ card }) => {
   return (
     <div className={s.services.card.root}>
+      {card.isFeatured && (
+        <div className={s.services.card.featured}>
+          <svg className={s.services.card.featuredIcon} fill="currentColor" viewBox="0 0 20 20">
+            <path d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" />
+          </svg>
+          {t('site.services.labels.featured')}
+        </div>
+      )}
       <div className={s.services.card.title}>{t(card.titleKey)}</div>
 
       <div className={s.services.card.meta}>
         <div className={s.services.card.metaRow}>
           <span>{t('site.services.labels.baseCost')}</span>
-          <span className={s.services.card.cost}>{t(card.costKey)}</span>
+          <div className={s.services.card.costWrapper}>
+            {card.oldCostKey && (
+              <span className={s.services.card.oldCost}>{t(card.oldCostKey)}</span>
+            )}
+            <span className={s.services.card.cost}>{t(card.costKey)}</span>
+          </div>
         </div>
         <div className={s.services.card.metaRow}>
           <span>{t('site.services.labels.avgDuration')}</span>

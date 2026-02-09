@@ -20,12 +20,67 @@ export function InquirySection() {
     service: '',
     period: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const serviceOptions = useMemo(() => landingContent.inquiry.serviceOptions, []);
 
-  const onSubmit: React.FormEventHandler = (e) => {
+  const onSubmit: React.FormEventHandler = async (e) => {
     e.preventDefault();
-    // Intentionally no hardcoded alerts/messages here.
+    
+    // 필수 필드 검증
+    if (!form.name || !form.phone || !form.service) {
+      alert('성함, 연락처, 의뢰 서비스를 모두 입력해주세요.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // 백엔드 API 엔드포인트 호출
+      // 환경 변수 또는 설정에서 API URL을 가져올 수 있습니다
+      const apiUrl = import.meta.env.VITE_API_URL || '/api/inquiry';
+      
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          service: form.service,
+          period: form.period || null,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('서버 오류가 발생했습니다.');
+      }
+
+      const data = await response.json();
+      
+      // 성공 시 폼 초기화
+      setForm({
+        name: '',
+        phone: '',
+        service: '',
+        period: '',
+      });
+      
+      setSubmitStatus('success');
+      
+      // 성공 메시지 (선택사항)
+      alert('의뢰가 접수되었습니다. 담당자가 곧 연락드리겠습니다.');
+      
+    } catch (error) {
+      console.error('의뢰 제출 오류:', error);
+      setSubmitStatus('error');
+      alert('의뢰 제출 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -92,9 +147,26 @@ export function InquirySection() {
                 onChange={(v) => setForm((prev) => ({ ...prev, period: v }))}
               />
 
-              <Button type="submit" variant="primary" className={s.inquiry.submit}>
-                {t('site.inquiry.form.submit')}
+              <Button 
+                type="submit" 
+                variant="primary" 
+                className={s.inquiry.submit}
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? '제출 중...' : t('site.inquiry.form.submit')}
               </Button>
+
+              {submitStatus === 'success' && (
+                <div className="mt-4 text-center text-sm text-green-600">
+                  의뢰가 성공적으로 접수되었습니다.
+                </div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <div className="mt-4 text-center text-sm text-red-600">
+                  오류가 발생했습니다. 다시 시도해주세요.
+                </div>
+              )}
 
               <div className={s.inquiry.consent}>{t('site.inquiry.form.consent')}</div>
             </form>

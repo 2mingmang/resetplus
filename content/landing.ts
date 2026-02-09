@@ -3,6 +3,7 @@ export type HeroChip = { labelKey: string };
 export type StatItem = { labelKey: string; valueKey: string };
 export type ServiceCardKey =
   | 'personalRehab'
+  | 'applicationDocs'
   | 'bankruptcy'
   | 'oldDebt'
   | 'garnishment'
@@ -15,6 +16,8 @@ export type ServiceCard = {
   durationKey: string;
   descKey: string;
   extraNoteKey?: string;
+  oldCostKey?: string;
+  isFeatured?: boolean;
 };
 
 export type InquiryStep = { noKey: string; titleKey: string };
@@ -32,6 +35,6 @@ export const landingContent = landing as {
     steps: InquiryStep[];
     serviceOptions: Array<{ labelKey: string; value: ServiceCardKey }>;
   };
-  links: { telHref: string; kakaoHref: string };
+  links: { telHref: string };
 };
 

@@ -6,6 +6,8 @@ import { Section } from '../ui/Section';
 import { ImageCarousel } from './ImageCarousel';
 import { landingStyles as s } from './landingStyles';
 
+import logoVertical from '../../logo/세로.jpg';
+
 export function AboutSection() {
   return (
     <Section id="about" className={s.about.root}>
@@ -23,6 +25,9 @@ export function AboutSection() {
 
           <div className={s.about.right}>
             <ImageCarousel slides={landingContent.about.carousel} />
+            <div className="mt-8 flex justify-center">
+              <img src={logoVertical} alt={t('site.name')} className="h-32 object-contain" />
+            </div>
           </div>
         </div>
       </Container>

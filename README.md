@@ -1,20 +1,20 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 리셋플러스 (ResetPlus)
 
-# Run and deploy your AI Studio app
+개인회생·파산 서류 대행 전문 회사 리셋플러스의 랜딩 페이지입니다.
 
-This contains everything you need to run your app locally.
+## 실행 방법
 
-View your app in AI Studio: https://ai.studio/apps/drive/11PKjVIPc-lNVrPWYW5P5inTLnZLUIMVn
+**필수 요구사항:** Node.js
 
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+1. 의존성 설치:
+   ```bash
+   npm install
+   ```
+2. 개발 서버 실행:
+   ```bash
+   npm run dev
+   ```
+3. 빌드:
+   ```bash
+   npm run build
+   ```
