@@ -1,0 +1,103 @@
+{
+  "anchors": {
+    "top": "#top",
+    "about": "#about",
+    "services": "#services",
+    "inquiry": "#inquiry"
+  },
+  "nav": [
+    { "labelKey": "site.nav.about", "href": "#about" },
+    { "labelKey": "site.nav.services", "href": "#services" }
+  ],
+  "hero": {
+    "chips": [
+      { "labelKey": "site.hero.chips.personalRehab" },
+      { "labelKey": "site.hero.chips.oldDebt" },
+      { "labelKey": "site.hero.chips.garnishment" }
+    ],
+    "primaryCtaHref": "#inquiry",
+    "secondaryCtaHref": "#"
+  },
+  "stats": [
+    { "labelKey": "site.stats.items.0.label", "valueKey": "site.stats.items.0.value" },
+    { "labelKey": "site.stats.items.1.label", "valueKey": "site.stats.items.1.value" },
+    { "labelKey": "site.stats.items.2.label", "valueKey": "site.stats.items.2.value" }
+  ],
+  "about": {
+    "carousel": [
+      {
+        "imageUrl": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80",
+        "altKey": "site.about.carousel.alt"
+      },
+      {
+        "imageUrl": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80",
+        "altKey": "site.about.carousel.alt"
+      },
+      {
+        "imageUrl": "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80",
+        "altKey": "site.about.carousel.alt"
+      }
+    ]
+  },
+  "services": {
+    "cards": [
+      {
+        "key": "personalRehab",
+        "titleKey": "site.services.cards.personalRehab.title",
+        "costKey": "site.services.cards.personalRehab.cost",
+        "durationKey": "site.services.cards.personalRehab.duration",
+        "descKey": "site.services.cards.personalRehab.desc"
+      },
+      {
+        "key": "bankruptcy",
+        "titleKey": "site.services.cards.bankruptcy.title",
+        "costKey": "site.services.cards.bankruptcy.cost",
+        "durationKey": "site.services.cards.bankruptcy.duration",
+        "descKey": "site.services.cards.bankruptcy.desc"
+      },
+      {
+        "key": "oldDebt",
+        "titleKey": "site.services.cards.oldDebt.title",
+        "costKey": "site.services.cards.oldDebt.cost",
+        "durationKey": "site.services.cards.oldDebt.duration",
+        "descKey": "site.services.cards.oldDebt.desc"
+      },
+      {
+        "key": "garnishment",
+        "titleKey": "site.services.cards.garnishment.title",
+        "costKey": "site.services.cards.garnishment.cost",
+        "durationKey": "site.services.cards.garnishment.duration",
+        "descKey": "site.services.cards.garnishment.desc",
+        "extraNoteKey": "site.services.cards.garnishment.extraNote"
+      },
+      {
+        "key": "release",
+        "titleKey": "site.services.cards.release.title",
+        "costKey": "site.services.cards.release.cost",
+        "durationKey": "site.services.cards.release.duration",
+        "descKey": "site.services.cards.release.desc",
+        "extraNoteKey": "site.services.cards.release.extraNote"
+      }
+    ]
+  },
+  "inquiry": {
+    "steps": [
+      { "noKey": "site.inquiry.steps.0.no", "titleKey": "site.inquiry.steps.0.title" },
+      { "noKey": "site.inquiry.steps.1.no", "titleKey": "site.inquiry.steps.1.title" },
+      { "noKey": "site.inquiry.steps.2.no", "titleKey": "site.inquiry.steps.2.title" },
+      { "noKey": "site.inquiry.steps.3.no", "titleKey": "site.inquiry.steps.3.title" }
+    ],
+    "serviceOptions": [
+      { "labelKey": "site.services.cards.personalRehab.title", "value": "personalRehab" },
+      { "labelKey": "site.services.cards.bankruptcy.title", "value": "bankruptcy" },
+      { "labelKey": "site.services.cards.oldDebt.title", "value": "oldDebt" },
+      { "labelKey": "site.services.cards.garnishment.title", "value": "garnishment" },
+      { "labelKey": "site.services.cards.release.title", "value": "release" }
+    ]
+  },
+  "links": {
+    "telHref": "tel:",
+    "kakaoHref": "#"
+  }
+}
+
