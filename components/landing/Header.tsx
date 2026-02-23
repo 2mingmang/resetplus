@@ -12,7 +12,7 @@ export function Header() {
     <header className={s.header.root}>
       <Container className={s.header.container}>
         <a href={landingContent.anchors.top} className={s.header.brand}>
-          <img src={logoHorizontal} alt={t('site.name')} className="h-12 object-contain" />
+          <img src={logoHorizontal} alt={t('site.name')} className="h-9 object-contain" />
         </a>
 
         <nav className={s.header.nav}>
