@@ -38,10 +38,10 @@ export function InquirySection() {
     setSubmitStatus('idle');
 
     try {
-      // 백엔드 API 엔드포인트 호출
-      // 환경 변수 또는 설정에서 API URL을 가져올 수 있습니다
-      const apiUrl = import.meta.env.VITE_API_URL || '/api/inquiry';
-      
+      // Formspree: https://formspree.io 에서 폼 만들고 받은 ID를 .env에 VITE_FORMSPREE_FORM_ID 로 넣으세요.
+      const formId = import.meta.env.VITE_FORMSPREE_FORM_ID;
+      const apiUrl = formId ? `https://formspree.io/f/${formId}` : (import.meta.env.VITE_API_URL || '/api/inquiry');
+
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
@@ -51,7 +51,7 @@ export function InquirySection() {
           name: form.name,
           phone: form.phone,
           service: form.service,
-          period: form.period || null,
+          period: form.period || undefined,
         }),
       });
 
@@ -59,7 +59,10 @@ export function InquirySection() {
         throw new Error('서버 오류가 발생했습니다.');
       }
 
-      const data = await response.json();
+      // Formspree는 성공 시 200 반환 (JSON 없을 수 있음)
+      if (response.headers.get('content-type')?.includes('application/json')) {
+        await response.json();
+      }
       
       // 성공 시 폼 초기화
       setForm({
