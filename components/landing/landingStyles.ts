@@ -37,10 +37,10 @@ export const landingStyles = {
 
   about: {
     root: 'py-16 bg-white',
-    grid: 'grid grid-cols-1 lg:grid-cols-2 gap-12 items-start',
+    grid: 'grid grid-cols-1 lg:grid-cols-2 gap-12 items-center',
     title: 'text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 leading-snug',
     titleAccent: 'text-[#2E75CB]',
-    p: 'text-sm text-slate-600 leading-relaxed',
+    p: 'text-base text-slate-600 leading-relaxed whitespace-pre-line',
     p1: 'mt-6',
     p2: 'mt-5',
     right: 'lg:pl-8',
