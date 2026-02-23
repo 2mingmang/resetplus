@@ -42,6 +42,9 @@ export function InquirySection() {
       const formId = import.meta.env.VITE_FORMSPREE_FORM_ID;
       const apiUrl = formId ? `https://formspree.io/f/${formId}` : (import.meta.env.VITE_API_URL || '/api/inquiry');
 
+      const selectedOption = serviceOptions.find((opt) => opt.value === form.service);
+      const serviceName = selectedOption ? t(selectedOption.labelKey) : form.service;
+
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
@@ -50,7 +53,7 @@ export function InquirySection() {
         body: JSON.stringify({
           name: form.name,
           phone: form.phone,
-          service: form.service,
+          service: serviceName,
           period: form.period || undefined,
         }),
       });
