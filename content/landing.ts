@@ -35,6 +35,6 @@ export const landingContent = landing as {
     steps: InquiryStep[];
     serviceOptions: Array<{ labelKey: string; value: ServiceCardKey }>;
   };
-  links: { telHref: string };
+  links: { telHref: string; kakaoHref?: string };
 };
 

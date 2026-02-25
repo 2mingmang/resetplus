@@ -106,6 +106,8 @@ export const landingStyles = {
     wrap: 'fixed right-4 bottom-4 z-50 flex flex-col gap-3',
     call:
       'inline-flex items-center gap-2 rounded-full bg-white px-4 py-3 shadow-lg border border-slate-200 text-sm font-semibold text-slate-800 hover:bg-slate-50',
+    kakao:
+      'inline-flex items-center gap-2 rounded-full bg-[#FEE500] px-4 py-3 shadow-lg border border-[#E5D000] text-sm font-semibold text-[#191919] hover:bg-[#FADA0A]',
   },
 } as const;
 

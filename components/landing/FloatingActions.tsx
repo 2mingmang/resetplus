@@ -4,16 +4,35 @@ import { t } from '../../i18n/translation';
 import { landingStyles as s } from './landingStyles';
 
 export function FloatingActions() {
+  const { telHref, kakaoHref } = landingContent.links;
+
   return (
     <div className={s.floating.wrap}>
-      <a
-        href={landingContent.links.telHref}
-        className={s.floating.call}
-      >
+      {kakaoHref && (
+        <a
+          href={kakaoHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={s.floating.kakao}
+          aria-label={t('site.floating.kakao')}
+        >
+          <KakaoIcon />
+          {t('site.floating.kakao')}
+        </a>
+      )}
+      <a href={telHref} className={s.floating.call} aria-label={t('site.floating.call')}>
         <PhoneIcon />
         {t('site.floating.call')}
       </a>
     </div>
+  );
+}
+
+function KakaoIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 3c5.8 0 10.5 3.66 10.5 8.18 0 2.84-1.69 5.36-4.26 7.04l-.9 3.6-3.28-2.06c-.94.14-1.9.21-2.88.21-5.8 0-10.5-3.66-10.5-8.18S6.2 3 12 3z" />
+    </svg>
   );
 }
 
